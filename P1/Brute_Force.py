@@ -1,3 +1,10 @@
+"""
+Brute force solution - 3 nested loops.
+Time complexity = O(n^3)
+Space complexity = 2 * O(no. of triplets) [As, one list represents a triplet which in turn
+                                        is stored inside another list]
+"""
+
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         n = len(nums)
