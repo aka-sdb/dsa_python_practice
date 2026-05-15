@@ -1,8 +1,8 @@
 """
-This has 2 loops, where outer loop fixes the first element
-and the second loop acts as if we are dealing with 2 Sum problem using two-pointer technique
-There is an overhead, where we check whether a particular triplet already exists or not and,
-accordingly we include the triplet. This is done to eliminate duplicates.
+This has 2 loops, like the better.py file here also we use the two-pointer technique.
+Here, we remove the duplicate check overhead by simply moving the pointers.
+If either x or y position's value is the same as their previous values, then keep on
+moving the pointers till the values differ.
 """
 
 class Solution:
@@ -13,6 +13,9 @@ class Solution:
 
         for i in range(0, n - 2):
             first = nums[i]
+            if (i > 0) and (first == nums[i - 1]):
+                continue
+            
             j, k = i + 1, n - 1
 
             while j < k:
@@ -27,10 +30,14 @@ class Solution:
                     j = j + 1
                 else:
                     triplet = [first, second, third]
-                    if triplet not in result:
-                        result.append(triplet)
+                    result.append(triplet)
                     
-                    k = k - 1
                     j = j + 1
+                    while (nums[j] == nums[j - 1]) and (j < k):
+                        j = j + 1
+
+                    k = k - 1
+                    while (nums[k] == nums[k + 1]) and (j < k):
+                        k = k - 1
 
         return result
