@@ -6,7 +6,7 @@ W E
 A R E
 F I N E
 
-While, no. of words are 3, but FINE is the longest word having length 4
+While no. of words are 3, but FINE is the longest word having length 4
 So, outer loop should be driven by the length and inner loop by the word position
 as, we need to fix the position of the character and go through every word.
 """
